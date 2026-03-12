@@ -1,6 +1,3 @@
----
-
-# README.md (English Default + Korean Toggle)
 
 ````markdown
 # Pixel Dot Converter
