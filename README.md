@@ -3,6 +3,10 @@
 이미지를 픽셀 아트 또는 도트 아트로 변환하는 클라이언트 사이드 웹 앱입니다.
 A client-side web application that converts images to pixel art or dot art.
 
+## 📥 Download Executable (Desktop App)
+**컴파일된 실행 파일(.exe / .dmg)을 바로 다운로드하여 사용해 보세요:**
+> **[👉 최신 버전 다운로드 (Google Drive)](https://drive.google.com/file/d/1hKiGm_Ox-ruUp-9x1m57LGV68eKAssYj/view?usp=sharing)**
+
 > 외부 서버로 이미지가 전송되지 않습니다. 모든 처리는 브라우저에서 이루어집니다.
 > No image is sent to any server. All processing happens entirely in your browser.
 
