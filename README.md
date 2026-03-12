@@ -1,12 +1,3 @@
-GitHub README에서 **기본은 영어**, 필요하면 **한국어로 전환해서 읽을 수 있는 구조**는 보통 아래 두 가지 방식 중 하나로 합니다.
-
-1️⃣ **Language toggle 링크 방식 (가장 많이 씀)**
-2️⃣ **README_EN.md / README_KR.md 분리 방식**
-
-여기서는 **GitHub에서 가장 표준적인 방식**인 **README 내부 Language toggle** 구조로 영어 기본 + 한국어 섹션을 제공하는 형태로 만들어 줄게.
-
-아래 **그대로 README.md에 붙여 넣으면 됨**.
-
 ---
 
 # README.md (English Default + Korean Toggle)
