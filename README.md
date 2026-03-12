@@ -1,145 +1,362 @@
-Here is the full README content in **English only**, formatted exactly for you to copy and paste into your GitHub editor.
+GitHub README에서 **기본은 영어**, 필요하면 **한국어로 전환해서 읽을 수 있는 구조**는 보통 아래 두 가지 방식 중 하나로 합니다.
 
-```markdown
-# Pixel Dot Converter 🎨
+1️⃣ **Language toggle 링크 방식 (가장 많이 씀)**
+2️⃣ **README_EN.md / README_KR.md 분리 방식**
 
-A client-side web application that converts images to pixel art or dot art. All processing happens entirely in your browser—no images are ever sent to a server.
+여기서는 **GitHub에서 가장 표준적인 방식**인 **README 내부 Language toggle** 구조로 영어 기본 + 한국어 섹션을 제공하는 형태로 만들어 줄게.
+
+아래 **그대로 README.md에 붙여 넣으면 됨**.
+
+---
+
+# README.md (English Default + Korean Toggle)
+
+````markdown
+# Pixel Dot Converter
+
+A client-side web application that converts images into **pixel art** or **dot art**.
+
+[한국어로 보기 🇰🇷](#-pixel-dot-converter-한국어)
 
 ---
 
 ## 📥 Download Executable (Desktop App)
-**Download and use the compiled executable (.exe / .dmg) immediately:**
-> **[👉 Download Latest Version (Google Drive)](https://drive.google.com/file/d/1hKiGm_Ox-ruUp-9x1m57LGV68eKAssYj/view?usp=sharing)**
+
+Download the compiled executable directly:
+
+👉 **[Download Latest Release (Google Drive)](https://drive.google.com/file/d/1hKiGm_Ox-ruUp-9x1m57LGV68eKAssYj/view?usp=sharing)**
+
+> No image is sent to any external server.  
+> All processing happens entirely in your browser.
 
 ---
 
-## Features
+# Features
 
-### Pixel Art Mode
-- **Pixel Size Control**: Adjust resolution from 4px to 64px.
-- **Color Palette Limiting**: Select 8, 16, 32, 64 colors, or a custom count.
-- **Grid Overlay**: Toggle grids with customizable colors.
-- **Image Adjustments**: Fine-tune brightness and contrast.
-- **Dithering**: Supports Floyd-Steinberg, Ordered (Bayer 4x4), and Atkinson algorithms.
+## Pixel Art Mode
 
-### Dot Art Mode
-- **Dot Configuration**: Adjust size (2-32px) and spacing (0-16px).
-- **Dot Shapes**: Choose between Circle, Square, and Diamond.
-- **Background Customization**: Select any background color.
-- **Brightness Size Variation**: Dynamically resize dots based on image luminosity.
-- **Dithering**: Supports Floyd-Steinberg, Ordered (Bayer 4x4), and Atkinson.
+- Adjustable pixel size (4 ~ 64px)
+- Color palette limitation (8 / 16 / 32 / 64 colors or custom)
+- Grid overlay (custom color)
+- Brightness / contrast adjustment
+- Dithering algorithms
+  - Floyd–Steinberg
+  - Ordered (Bayer 4×4)
+  - Atkinson
 
-### General Capabilities
-- **Preset Palettes**: Includes Game Boy, NES, SNES, and Monochrome.
-- **High-Quality Export**: Export as PNG (1x, 2x, 4x scaling) or SVG (Vector).
-- **Interactive Canvas**: Side-by-side view with synchronized zooming and panning.
-- **UI/UX**: Dark mode support and a session history of the last 5 conversions.
-- **Performance**: Powered by Web Workers for non-blocking asynchronous processing.
-- **Upload**: Easy drag-and-drop support.
+## Dot Art Mode
+
+- Dot size (2 ~ 32px) and spacing (0 ~ 16px)
+- Dot shapes
+  - Circle
+  - Square
+  - Diamond
+- Background color selection
+- Brightness-based dot size variation
+- Dithering
+  - Floyd–Steinberg
+  - Ordered (Bayer 4×4)
+  - Atkinson
+
+## Shared Features
+
+- Preset palettes
+  - Game Boy
+  - NES
+  - SNES
+  - Monochrome
+- PNG export (1x / 2x / 4x scale)
+- SVG export (vector — infinitely scalable)
+- Side-by-side original / result preview
+- Zoom & panning
+- Dark mode
+- Conversion history (last 5)
+- Web Worker asynchronous processing (no UI blocking)
+- Drag & drop image upload
 
 ---
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+## Prerequisites
+
 - Node.js >= 18
 - npm >= 9
 
-### Installation
+---
+
+## Installation
+
 ```bash
-git clone [https://github.com/](https://github.com/)<your-username>/pixel-dot-converter.git
+git clone https://github.com/<your-username>/pixel-dot-converter.git
 cd pixel-dot-converter
 npm install
+````
 
-```
+---
 
-### Development (Web)
+## Development (Web)
 
 ```bash
 npm run dev
-
 ```
 
-Open `http://localhost:5173` in your browser.
+Open in browser:
 
-### Build (Web)
+```
+http://localhost:5173
+```
+
+---
+
+## Build (Web)
 
 ```bash
 npm run build
-npm run preview   # Verify build results locally
-
+npm run preview
 ```
+
+The `dist/` folder can be deployed to any static hosting:
+
+* GitHub Pages
+* Vercel
+* Netlify
 
 ---
 
-## Desktop App (Electron)
+# Desktop App (Electron)
 
-Build for Windows, macOS, or Linux using Electron.
+You can also build it as a desktop application.
 
 ```bash
-# Dev mode (Electron + Vite HMR)
 npm run electron:dev
+```
 
-# Platform-specific builds
-npm run electron:build:win    # Windows x64
-npm run electron:build:mac    # macOS dmg
-npm run electron:build:linux  # Linux AppImage
+Build for platforms:
 
+```bash
+npm run electron:build:win
+npm run electron:build:mac
+npm run electron:build:linux
+```
+
+Output files are generated in:
+
+```
+dist-electron/
 ```
 
 ---
 
-## Project Structure
+# Usage
+
+1. Upload an image (drag & drop or click)
+2. Choose mode (`Pixel Art` or `Dot Art`)
+3. Adjust settings
+4. Preview updates automatically
+5. Export as PNG or SVG
+
+---
+
+# Project Structure
 
 ```
 pixel-dot-converter/
-├── electron/               # Electron main process
-├── public/                 # Static assets (icons, etc.)
+├── electron/
+│   └── main.cjs
+├── public/
+│   ├── icon.png
+│   └── icon.svg
+├── scripts/
+│   └── zip-release.mjs
 ├── src/
-│   ├── components/         # UI Components (Header, Canvas, Panels)
-│   ├── hooks/              # Custom Hooks (Processor, Interaction)
-│   ├── utils/              # Algorithms (Pixel/Dot, Quantization)
-│   ├── workers/            # Image processing Web Worker
-│   └── types/              # TypeScript definitions
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│
+│   ├── components/
+│   ├── hooks/
+│   ├── utils/
+│   ├── workers/
+│   └── types/
+│
+├── index.html
+├── vite.config.ts
+├── tailwind.config.js
+├── tsconfig.json
 └── package.json
+```
+
+---
+
+# Tech Stack
+
+| Category    | Tool                  |
+| ----------- | --------------------- |
+| Framework   | React 19 + TypeScript |
+| Build       | Vite                  |
+| Styling     | Tailwind CSS          |
+| Rendering   | Canvas API            |
+| Performance | Web Workers           |
+| Desktop     | Electron              |
+| Linting     | ESLint + Prettier     |
+
+No external image processing libraries are used.
+
+Everything is implemented using **Canvas API + Web Workers**.
+
+---
+
+# Algorithms
+
+## Color Quantization
+
+Median Cut
+
+Splits color space recursively to extract representative colors.
+
+## Dithering
+
+### Floyd–Steinberg
+
+Error diffusion to neighboring pixels.
+
+### Ordered (Bayer 4×4)
+
+Regular threshold pattern.
+
+### Atkinson
+
+Variant of Floyd–Steinberg optimized for brighter regions.
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a branch
+
+```
+git checkout -b feature/amazing-feature
+```
+
+3. Commit
+
+```
+git commit -m "Add amazing feature"
+```
+
+4. Push
+
+```
+git push origin feature/amazing-feature
+```
+
+5. Open Pull Request
+
+---
+
+# License
+
+MIT License
+
+See `LICENSE` for details.
+
+---
+
+---
+
+# 🇰🇷 Pixel Dot Converter (한국어)
+
+이미지를 **픽셀 아트 또는 도트 아트로 변환하는 클라이언트 사이드 웹 애플리케이션**입니다.
+
+---
+
+## 📥 실행 파일 다운로드
+
+👉 **[최신 버전 다운로드](https://drive.google.com/file/d/1hKiGm_Ox-ruUp-9x1m57LGV68eKAssYj/view?usp=sharing)**
+
+> 이미지가 외부 서버로 전송되지 않습니다.
+> 모든 처리는 브라우저에서 이루어집니다.
+
+---
+
+## 주요 기능
+
+### Pixel Art Mode
+
+* 픽셀 크기 조절 (4 ~ 64px)
+* 색상 팔레트 제한
+* 그리드 오버레이
+* 밝기 / 대비 조절
+* 디더링
+
+### Dot Art Mode
+
+* 도트 크기 / 간격 조절
+* 도트 모양 선택
+* 배경색 선택
+* 밝기에 따른 도트 크기 변형
+
+---
+
+## 공통 기능
+
+* Game Boy / NES / SNES 팔레트
+* PNG / SVG 내보내기
+* 원본 / 결과 비교
+* 줌 & 패닝
+* 다크모드
+* 변환 이력
+* Web Worker 비동기 처리
+* 드래그 앤 드롭 업로드
+
+---
+
+## 설치
+
+```bash
+git clone https://github.com/<your-username>/pixel-dot-converter.git
+cd pixel-dot-converter
+npm install
+```
+
+---
+
+## 개발 실행
+
+```bash
+npm run dev
+```
+
+브라우저에서
+
+```
+http://localhost:5173
+```
+
+열면 됩니다.
+
+---
+
+## 라이선스
+
+MIT License
 
 ```
 
 ---
 
-## Tech Stack
+## 👍 이 README 구조의 장점
 
-| Category | Library / Tool |
-| --- | --- |
-| **Framework** | React 19 + TypeScript 5 |
-| **Build** | Vite 7 |
-| **Styling** | Tailwind CSS 3 |
-| **Rendering** | HTML5 Canvas API |
-| **Performance** | Web Workers (Transferable ImageData) |
-| **Desktop** | Electron 41 + electron-builder |
+GitHub에서
 
-*Note: This project does not use external image processing libraries. Everything is implemented using native Canvas API and Web Workers.*
+- **기본 English**
+- **한국어 바로 이동 링크**
+- **README 하나로 관리 가능**
+- **오픈소스 표준 스타일**
 
 ---
 
-## Algorithms
-
-* **Color Quantization**: **Median Cut** — Recursively splits the color space to extract representative colors.
-* **Dithering**:
-* **Floyd-Steinberg**: Error diffusion for natural gradients.
-* **Ordered (Bayer 4x4)**: Regular threshold patterns for a retro aesthetic.
-* **Atkinson**: Preserves bright areas and highlights effectively.
-
-
-
----
-
-## License
-
-MIT License — see [LICENSE](https://www.google.com/search?q=./LICENSE) for details.
-
-```
-
-Would you like me to help you draft the `LICENSE` file or a `CONTRIBUTING.md` guide next?
-
-```
