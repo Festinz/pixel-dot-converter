@@ -1,6 +1,3 @@
----
-
-````markdown
 # Pixel Dot Converter
 
 A client-side web application that converts images into **pixel art** or **dot art**.
